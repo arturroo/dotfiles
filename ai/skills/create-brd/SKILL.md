@@ -2,6 +2,9 @@
 name: create-brd
 description: >-
   Extracts task requirements from the lesson markdown or context and creates a structured BRD.md in a context-defined task folder.
+author: Artur Fejklowicz
+version: 1.0.0
+updated_at: 2026-10-14
 ---
 
 # Create BRD (Business Requirements Document)

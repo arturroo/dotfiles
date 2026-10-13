@@ -2,6 +2,9 @@
 name: create-prd
 description: >-
   Combines BRD.md and an Accepted ADR.md to generate the final PRD.md file in the Google Design Doc format.
+author: Artur Fejklowicz
+version: 1.0.0
+updated_at: 2026-10-14
 ---
 
 # Create PRD (Product Requirements Document)

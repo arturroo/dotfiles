@@ -3,7 +3,8 @@ name: git-add-commit-and-push
 description: >-
   Perform a secure Git publish workflow (audit, stage, conventional commit, push, and PR link). Use when the user asks to commit, stage, push, or publish changes to Git.
 author: Artur Fejklowicz
-updated_at: 2026-10-12
+version: 1.1.0
+updated_at: 2026-10-14
 ---
 
 # Git Add, Commit and Push (Generic Git Workflow)

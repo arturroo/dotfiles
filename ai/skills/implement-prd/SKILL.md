@@ -2,6 +2,9 @@
 name: implement-prd
 description: >-
   Executes the codebase implementation based on the final specifications in PRD.md. Skipping automatic commits.
+author: Artur Fejklowicz
+version: 1.0.0
+updated_at: 2026-10-14
 ---
 
 # Implement PRD
