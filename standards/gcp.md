@@ -1,3 +1,11 @@
+---
+author: Artur Fejklowicz
+copyright: "Copyright (c) 2026 Artur Fejklowicz"
+license: Apache-2.0
+version: 1.0.0
+updated_at: 2026-10-14
+---
+
 # Google Cloud Architecture Standards
 
 These standards govern resource architecture, identity management, and serverless deployments across Google Cloud Platform (GCP).

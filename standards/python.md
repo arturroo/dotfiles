@@ -1,3 +1,11 @@
+---
+author: Artur Fejklowicz
+copyright: "Copyright (c) 2026 Artur Fejklowicz"
+license: Apache-2.0
+version: 1.0.0
+updated_at: 2026-10-14
+---
+
 # Python Engineering Standards
 
 These standards establish the baseline for high-performance, strictly typed, and maintainable Python services.

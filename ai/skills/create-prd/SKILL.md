@@ -3,6 +3,8 @@ name: create-prd
 description: >-
   Combines BRD.md and an Accepted ADR.md to generate the final PRD.md file in the Google Design Doc format.
 author: Artur Fejklowicz
+copyright: "Copyright (c) 2026 Artur Fejklowicz"
+license: Apache-2.0
 version: 1.0.0
 updated_at: 2026-10-14
 ---

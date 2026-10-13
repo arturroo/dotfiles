@@ -1,3 +1,11 @@
+---
+author: Artur Fejklowicz
+copyright: "Copyright (c) 2026 Artur Fejklowicz"
+license: Apache-2.0
+version: 1.0.0
+updated_at: 2026-10-14
+---
+
 # Universal AI Pair-Programming & System Instructions
 
 This document defines the core behavioral, architectural, and code-quality standards for AI-assisted engineering across personal and professional projects.

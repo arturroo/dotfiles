@@ -1,3 +1,11 @@
+---
+author: Artur Fejklowicz
+copyright: "Copyright (c) 2026 Artur Fejklowicz"
+license: Apache-2.0
+version: 1.0.0
+updated_at: 2026-10-14
+---
+
 # Data Engineering Standards & Solutions (Anti)patterns
 
 These standards define best practices for building robust, scalable, and cost-efficient data pipelines and analytical stores on Google Cloud.

@@ -1,4 +1,7 @@
 # ==============================================================================
+# Copyright (c) 2026 Artur Fejklowicz
+# SPDX-License-Identifier: Apache-2.0
+# Author: Artur Fejklowicz | Version: 1.0.0 | Updated: 2026-10-14
 # Terraform Main Configuration
 # Initializes the Google provider using project and region variables.
 # ==============================================================================

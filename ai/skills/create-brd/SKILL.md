@@ -3,6 +3,8 @@ name: create-brd
 description: >-
   Extracts task requirements from the lesson markdown or context and creates a structured BRD.md in a context-defined task folder.
 author: Artur Fejklowicz
+copyright: "Copyright (c) 2026 Artur Fejklowicz"
+license: Apache-2.0
 version: 1.0.0
 updated_at: 2026-10-14
 ---

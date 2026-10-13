@@ -3,6 +3,8 @@ name: create-adr
 description: >-
   Runs an interactive, tiered Socratic process (with pre-flight codebase reconnaissance, GEMINI.md baseline, archetypal MCQ options, and on-demand Expert Matrix), then generates ADR.md in MADR Compound format. Requires BRD.md to exist.
 author: Artur Fejklowicz
+copyright: "Copyright (c) 2026 Artur Fejklowicz"
+license: Apache-2.0
 version: 2.0.0
 updated_at: 2026-10-14
 ---
