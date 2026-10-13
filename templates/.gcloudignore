@@ -1,0 +1,23 @@
+# ==============================================================================
+# GCloud Ignore - Cloud Build Artifact Hygiene
+# ==============================================================================
+
+.gcloudignore
+.git
+.gitignore
+.venv
+.pytest_cache
+.mypy_cache
+.ruff_cache
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.env
+.env.*
+tests
+workspace
+**/workspace
+run_notes.txt
+**/run_notes.txt
+*.log

@@ -1,0 +1,23 @@
+# ==============================================================================
+# Docker Ignore - Hermetic Container Builds
+# Prevents Cross-Platform Venv Poisoning and Stale Cache Ingestion
+# ==============================================================================
+
+.git
+.gitignore
+.venv
+.pytest_cache
+.mypy_cache
+.ruff_cache
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.env
+.env.*
+tests
+workspace
+**/workspace
+run_notes.txt
+**/run_notes.txt
+*.log
