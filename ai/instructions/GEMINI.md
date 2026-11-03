@@ -2,8 +2,8 @@
 author: Artur Fejklowicz
 copyright: "Copyright (c) 2026 Artur Fejklowicz"
 license: Apache-2.0
-version: 1.0.0
-updated_at: 2026-10-14
+version: 1.1.0
+updated_at: 2026-11-03
 ---
 
 # Universal AI Pair-Programming & System Instructions
@@ -83,6 +83,8 @@ To optimize cognitive flow, reduce mental friction, and establish **psychologica
   - Never write scratch or runtime buffers to local container disks (`workspace/`).
   - Always include `.dockerignore` and `.gcloudignore` excluding `.git`, `.venv`, `__pycache__`, and tests.
   - Mandatory health check endpoints: `GET /health` and `GET /`.
+- **Terraform Packaging Exclusions:**
+  - In Terraform modules packaging source code (`archive_file` for Cloud Functions or Cloud Run), always include standard exclusions to guarantee deterministic archive hashes and prevent unnecessary redeployments: `excludes = [".git", ".venv", "__pycache__", ".pytest_cache", ".zips", "zips", ".gemini", "node_modules", ".DS_Store"]`.
 
 ---
 
@@ -106,3 +108,33 @@ For any complex feature or microservice, follow this lifecycle:
 2. **ADR (Architecture Decision Record):** MADR format evaluating tradeoffs, security implications, and cloud architecture.
 3. **PRD (Product Requirements Document):** Comprehensive technical specification and schema definition.
 4. **Implementation & Verification:** Automated unit/contract tests, linting, type-checking, and pre-flight validation.
+
+---
+
+## 6. Actionable Error Handling & Fault Resilience
+
+All software produced (frontend UIs, backend services, Cloud Functions, Python packages, and CLI scripts) must strictly throw and display **actionable errors**. Silent fallbacks that obscure root causes and dead-end generic error messages are strictly prohibited. Every error must communicate:
+1. **Specific Cause:** Concise, non-alarmist technical explanation of what specifically failed and why.
+2. **Inspection & Contact:** Explicit reference detailing where to inspect configuration/logs or whom to contact (at minimum: contact Artur).
+3. **Actionable Next Step:** Concrete workaround or recovery instruction so the user or calling system can proceed without blocking.
+
+---
+
+## 7. Gemini Models & Thinking Standard
+
+- **Prohibition of Legacy Models:** Models older than Gemini 3.5 are strictly prohibited across all pipelines, agents, and client libraries.
+- **Supported Model Tiers:** Exclusively use:
+  - `gemini-3.5-flash-lite`: Low-latency, cost-effective workhorse for routing, lightweight transformations, and quick evaluations.
+  - `gemini-3.8-flash`: Primary multi-modal workhorse for high-reasoning tasks, deep coding, and tool execution.
+  - Next-generation thinking models (Argon, Carbon).
+- **Reasoning Configuration:** Configure model reasoning strictly via `thinking_level` (`LOW`, `MEDIUM`, `HIGH`) in `types.ThinkingConfig`. Never use deprecated `thinking_budget` tokens, and omit `top_p` when thinking is active to avoid parameter conflicts.
+
+---
+
+## 8. Content Engineering & Digital Copywriting (LSI & E-E-A-T)
+
+Across all public-facing digital products, user interfaces, documentation, and SEO architectures:
+- **People-First & Google E-E-A-T:** Anchor all content in first-hand experience (**E**xperience), domain expertise (**E**xpertise), authoritative identity (**A**uthoritativeness), and transparent trust (**T**rustworthiness).
+- **Anti-Keyword Stuffing via LSI Clusters:** Never repeat the exact same key phrase or marketing adjective multiple times across a single page. Use rich, contextual Latent Semantic Indexing (LSI) clusters and domain synonyms to build Topical Authority naturally.
+- **High Information Gain:** Prioritize unique, authentic facts, measurements, and craftsmanship details over generic filler or repetitive boilerplate.
+- **Plain Language Standard (ISO 24495-1):** Enforce direct, accessible communication with logical hierarchy, scannable layouts, and zero artificial jargon.
