@@ -29,11 +29,14 @@ dotfiles/
 │   ├── instructions/
 │   │   └── GEMINI.md               # Universal system prompt & pair-programming instructions
 │   └── skills/                     # Reusable agent skills & workflow templates
+│       ├── backup-firestore-db/    # Export Cloud Firestore databases to GCS
 │       ├── create-adr/             # Architecture Decision Record generator (MADR format)
 │       ├── create-brd/             # Business Requirements Document extractor
 │       ├── create-prd/             # Product Requirements Document generator
-│       ├── implement-prd/          # Specification execution engine
+│       ├── firestore-drp-test/     # Automated end-to-end Firestore DRP drill test
 │       ├── git-add-commit-and-push/# Secure audit, stage, commit, and push skill
+│       ├── implement-prd/          # Specification execution engine
+│       ├── restore-firestore-db/   # Restore Firestore databases from GCS snapshots
 │       └── templates/              # MADR and technical PRD markdown templates
 │
 ├── standards/                      # Engineering Standards & Architectural Patterns
