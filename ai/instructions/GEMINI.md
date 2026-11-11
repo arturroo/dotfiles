@@ -2,8 +2,8 @@
 author: Artur Fejklowicz
 copyright: "Copyright (c) 2026 Artur Fejklowicz"
 license: Apache-2.0
-version: 1.1.0
-updated_at: 2026-11-03
+version: 1.2.0
+updated_at: 2026-11-11
 ---
 
 # Universal AI Pair-Programming & System Instructions
@@ -67,6 +67,8 @@ To optimize cognitive flow, reduce mental friction, and establish **psychologica
   - Consistent prefixing to avoid global collisions: `af-{project}-{resource}`.
   - Resource type prefixes: `bq-` (BigQuery), `fs-` (Firestore), `cr-` (Cloud Run), `sa-` (Service Accounts).
   - Service accounts convention: `sa-{resource_type}-{name}` (maximum 30 characters).
+- **Cloud Functions Standards:**
+  - Entry point function name (the callable target) is always strictly `"main"` (`def main(...)`).
 - **Vertex AI & Model Integrations:**
   - Explicit Vertex AI configuration (`vertexai=True`) with Google Cloud IAM credentials:
     ```python
@@ -95,6 +97,12 @@ To optimize cognitive flow, reduce mental friction, and establish **psychologica
   - All credentials reside in GCP Secret Manager (production) or local `.env` files (local development).
   - All `.env` files must be strictly gitignored. Only `.env.example` is committed.
   - Environment variable access pattern: `os.getenv("VAR") or "fallback"` to prevent empty-string overwrites.
+- **Zero-Trust Resource-Scoped Secrets Rule:**
+  - Never grant `roles/secretmanager.secretAccessor` at the GCP project level (e.g. via `google_project_iam_member` or broad `project_bindings`).
+  - Secret access for Cloud Functions and Cloud Run services must always be strictly scoped to the exact secret resource via `google_secret_manager_secret_iam_member` binding `roles/secretmanager.secretAccessor` directly to the specific `secret_id` for the dedicated service account. Zero trust.
+- **Zero-Trust & Specific Service Account Enforcement:**
+  - There are no shortcuts with permissions. Never use wildcards (such as `*@...`), generic domain suffixes (such as `.endswith("@developer.gserviceaccount.com")` or `.endswith(".iam.gserviceaccount.com")`), or broad roles.
+  - Cloud Run services, Cloud Functions, and API endpoints verifying OIDC tokens or IAM callers must explicitly allowlist exact, fully-qualified service account email addresses belonging to the target project. Zero trust.
 - **Telemetry & Logging Hygiene:**
   - NEVER log raw Base64 strings, binary payloads, or multi-megabyte payloads to logs, BigQuery tables, or LLM traces.
   - Always mask or summarize large tool outputs to metadata: MIME type, file size in bytes, and SHA-256 hash.
@@ -116,7 +124,7 @@ For any complex feature or microservice, follow this lifecycle:
 All software produced (frontend UIs, backend services, Cloud Functions, Python packages, and CLI scripts) must strictly throw and display **actionable errors**. Silent fallbacks that obscure root causes and dead-end generic error messages are strictly prohibited. Every error must communicate:
 1. **Specific Cause:** Concise, non-alarmist technical explanation of what specifically failed and why.
 2. **Inspection & Contact:** Explicit reference detailing where to inspect configuration/logs or whom to contact (at minimum: contact Artur).
-3. **Actionable Next Step:** Concrete workaround or recovery instruction so the user or calling system can proceed without blocking.
+3. **Actionable Next Step:** Concrete workaround or recovery instruction so the user can proceed without blocking.
 
 ---
 
@@ -138,3 +146,19 @@ Across all public-facing digital products, user interfaces, documentation, and S
 - **Anti-Keyword Stuffing via LSI Clusters:** Never repeat the exact same key phrase or marketing adjective multiple times across a single page. Use rich, contextual Latent Semantic Indexing (LSI) clusters and domain synonyms to build Topical Authority naturally.
 - **High Information Gain:** Prioritize unique, authentic facts, measurements, and craftsmanship details over generic filler or repetitive boilerplate.
 - **Plain Language Standard (ISO 24495-1):** Enforce direct, accessible communication with logical hierarchy, scannable layouts, and zero artificial jargon.
+
+---
+
+## 9. Environment, Formatting & Operational Conventions
+
+- **Documentation & Formatting Standards:**
+  - All `GEMINI.md`, `README.md`, and other markdown documentation must strictly be written in **English**.
+  - Date format: always ISO with hyphens (`yyyy-MM-dd`).
+  - Time format (unless specified otherwise): 24-hour clock (`HH:mm:ss`).
+- **Google Cloud SDK in PATH:**
+  - Google Cloud SDK CLI tools (`gcloud`, `bq`) are available in system `PATH` and should be executed directly via shell commands.
+- **Host OS & Shell Configuration (Tailor Per Machine Upon Installation):**
+  > [!NOTE]
+  > This base instruction template must adapt to the target host environment when deployed:
+  - **Local Workstation (e.g., Windows 11):** Default shell is PowerShell. Commands must use PowerShell syntax.
+  - **Remote / Cloud Environments (e.g., Linux instances):** Default shell is Bash. Commands must use standard POSIX / Bash syntax. Adapts automatically to the detected OS environment upon setup.

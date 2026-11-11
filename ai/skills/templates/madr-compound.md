@@ -73,5 +73,5 @@ Divergences:
 ## 5. More Information
 
 * **Related Documents**:
-  - [BRD.md](BRD.md)
-  - [{Architectural Pattern or Guide}](path/to/reference.md)
+  - [BRD.md](file:///path/to/BRD.md)
+  - [{Architectural Pattern or Guide}](file:///path/to/reference.md)
